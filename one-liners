@@ -1,0 +1,6 @@
+smbclient.py -U 'username%password' //remote_ip/share_name
+
+#GET SIDS OF FOREST
+Import-Module ActiveDirectory
+
+Get-ADForest | Select-Object -ExpandProperty Domains | ForEach-Object { Get-ADDomain -Identity $_ } | Select-Object Name, DomainSID
